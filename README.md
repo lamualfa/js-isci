@@ -438,4 +438,4 @@ Output: (Run 3x)
 
 </details>
 
-#### See [`examples.js`](blob/master/examples.js) file for more example usage.
+### See [`examples.js`](blob/master/examples.js) file for more example usage.
