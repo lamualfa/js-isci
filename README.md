@@ -80,7 +80,7 @@ CDN:
 - _Mutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/mutable.es.min.js
 - _Immutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/immutable.es.min.js
 
-> what is the difference between _Mutable_ and _Immutable_ version? See [Immutable Version](#nextisci-params-object)
+> what is the difference between _Mutable_ and _Immutable_ version? See [Mutable Version](#mutable-version)
 
 Modules:
 
