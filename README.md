@@ -39,17 +39,18 @@ You can save it anywhere in a place that supports to save a JSON or JSON string 
 # Simple ISCI example:
 
 **`isciAccountId.json`**
+
 ```json
 {
   "name": "isciAccountId",
   "pattern": "<districtId>_[uniqueCharacter]-[randomCharacter]",
   "keywords": {
     "uniqueCharacter": {
-        "type": "incrSingleCharset",
-        "charset": "abcdefgh",
-        "currentIndex": 0,
-        "valueIncrease": 1,
-        "length": 3
+      "type": "incrSingleCharset",
+      "charset": "abcdefgh",
+      "currentIndex": 0,
+      "valueIncrease": 1,
+      "length": 3
     },
     "randomCharacter": {
       "type": "randomCharset",
@@ -60,10 +61,10 @@ You can save it anywhere in a place that supports to save a JSON or JSON string 
   }
 }
 ```
-> in `pattern` section, `districtId` is the parameter that will be input when an *ID* is created. `uniqueCharacter` and `randomCharacter` are keywords that will be generated automatically by the *ISCI* library based on the options specified in the `keywords` section.
 
- 
-You can store this *JSON* object in *database* or file to generate an *ID* anytime, anywhere with any language system depends on the availability of *ISCI* libraries from each language.
+> in `pattern` section, `districtId` is the parameter that will be input when an _ID_ is created. `uniqueCharacter` and `randomCharacter` are keywords that will be generated automatically by the _ISCI_ library based on the options specified in the `keywords` section.
+
+You can store this _JSON_ object in _database_ or file to generate an _ID_ anytime, anywhere with any language system depends on the availability of _ISCI_ libraries from each language.
 
 # Instalation
 
@@ -79,7 +80,7 @@ CDN:
 - _Mutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/mutable.es.min.js
 - _Immutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/immutable.es.min.js
 
-> what is the difference between *Mutable* and *Immutable* version? See [Immutable Version](#nextisci-params-object)
+> what is the difference between _Mutable_ and _Immutable_ version? See [Immutable Version](#nextisci-params-object)
 
 Modules:
 
@@ -178,7 +179,6 @@ Output:
 
 #### You can use the result above as an _ID_ for your data like _`user_id`_, _`document_id`_ and etc.
 
-
 ## Formats
 
 ### Methods
@@ -196,19 +196,19 @@ Params:
 
 Get next ID from an ISCI Object.
 
-> <details>
-> <summary><b>Immutable version:</b></summary>
->
-> #### `.next(isci, params) object`
->
-> Return:
-> 
-> - `object.result` : `string` - The next ID
-> - `object.updatedIsci` : `object` - Updated `isci` object.
-> 
-> Same as `.next` method in _mutable_ version, but this function does not change the original `isci` object > and returning an `object` contain next ID and updated ISCI.
-> 
-> </details>
+<details>
+<summary><b>Immutable version:</b></summary>
+
+#### `.next(isci, params) object`
+
+Return:
+
+- `object.result` : `string` - The next ID
+- `object.updatedIsci` : `object` - Updated `isci` object.
+
+Same as `.next` method in _mutable_ version, but this function does not change the original `isci` object and returning an `object` contain next ID and updated ISCI.
+
+</details>
 
 ### Pattern Properties
 
