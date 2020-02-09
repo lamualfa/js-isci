@@ -3,6 +3,3 @@ node_js:
   - '12'
   - '10'
   - '8'
-jobs:
-  include:
-    - script: ./draft-1/test.js
