@@ -61,8 +61,8 @@ describe('valid result', () => {
     let numberOfTest = 10;
 
     const startNumber = 0;
-    const currentIndex = 0;
-    const valueIncrease = 1;
+    const index = 0;
+    const increaser = 1;
 
     const targetIsci = {
       pattern: '[incrNumber]',
@@ -70,8 +70,8 @@ describe('valid result', () => {
         incrNumber: {
           type: 'incrNumber',
           startNumber,
-          currentIndex,
-          valueIncrease
+          index,
+          increaser
         }
       }
     };
@@ -82,21 +82,21 @@ describe('valid result', () => {
     }
   });
 
-  test('valid result incrSingleCharset', () => {
+  test('valid result incrCharset', () => {
     let numberOfTest = 10;
 
-    const currentIndex = 0;
-    const valueIncrease = 1;
+    const index = 0;
+    const increaser = 1;
     const charset = 'abcdefghijklmnopqrs';
     const length = 30;
 
     const targetIsci = {
-      pattern: '[incrSingleCharset]',
+      pattern: '[incrCharset]',
       keywords: {
-        incrSingleCharset: {
-          type: 'incrSingleCharset',
-          currentIndex,
-          valueIncrease,
+        incrCharset: {
+          type: 'incrCharset',
+          index,
+          increaser,
           charset,
           length
         }
@@ -111,21 +111,21 @@ describe('valid result', () => {
     }
   });
 
-  test('valid result incrMultiCharsets', () => {
+  test('valid result incrCharsets', () => {
     let numberOfTest = 10;
 
-    const currentIndex = 0;
-    const valueIncrease = 1;
+    const index = 0;
+    const increaser = 1;
     const charsets = ['abcdefghijklmnopqrs', '0123456789', 'tuvwxyz'];
     const length = charsets.length;
 
     const targetIsci = {
-      pattern: '[incrMultiCharsets]',
+      pattern: '[incrCharsets]',
       keywords: {
-        incrMultiCharsets: {
-          type: 'incrMultiCharsets',
-          currentIndex,
-          valueIncrease,
+        incrCharsets: {
+          type: 'incrCharsets',
+          index,
+          increaser,
           charsets
         }
       }
@@ -203,8 +203,8 @@ describe('valid result', () => {
     let numberOfTest = 10;
 
     const startNumber = 0;
-    const currentIndex = 0;
-    const valueIncrease = 1;
+    const index = 0;
+    const increaser = 1;
 
     const targetIsci = {
       pattern: '[incrNumber]',
@@ -212,8 +212,8 @@ describe('valid result', () => {
         incrNumber: {
           type: 'incrNumber',
           startNumber,
-          currentIndex,
-          valueIncrease
+          index,
+          increaser
         }
       }
     };

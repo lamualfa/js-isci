@@ -10,23 +10,31 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
-    "babelify": "^10.0.0",
     "benchmark": "^2.1.4",
     "browserify": "^16.5.0",
     "codecov": "^3.6.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-header": "^2.0.9",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^2.0.0",
     "jest": "^24.9.0",
-    "uglify-es": "^3.3.9"
+    "merge-stream": "^2.0.0",
+    "readable-stream": "^3.5.0",
+    "uglify-es": "^3.3.9",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "description": "ISCI library for Javascript",
+  "homepage": "https://github.com/laodemalfatih/js-isci",
   "repository": "https://github.com/laodemalfatih/js-isci",
   "author": "Laode Muhammad Al Fatih <laodemalfatih@gmail.com>",
   "scripts": {
-    "test": "jest && codecov",
-    "build:mutable:js": "browserify mutable.js -t [ babelify --presets [ @babel/preset-env ] ] --standalone isci | uglifyjs -c -m --source-map -o dist/mutable.min.js",
-    "build:immutable:js": "browserify immutable.js -t [ babelify --presets [ @babel/preset-env ] ] --standalone isci | uglifyjs -c -m --source-map -o dist/immutable.min.js",
-    "build:mutable:es": "browserify mutable.js --standalone isci | uglifyjs -c -m --source-map -o dist/mutable.es.min.js",
-    "build:immutable:es": "browserify immutable.js --standalone isci | uglifyjs -c -m --source-map -o dist/immutable.es.min.js",
-    "build": "yarn build:mutable:js&&yarn build:immutable:js&&yarn build:mutable:es&&yarn build:immutable:es"
+    "test": "yarn test:only && codecov",
+    "test:only": "jest --projects ./draft-1",
+    "build": "gulp build"
   },
   "jest": {
     "coverageDirectory": "./coverage/",

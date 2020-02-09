@@ -1,36 +1,41 @@
-![npm](https://img.shields.io/npm/v/js-isci?color=%23DD3A37&style=for-the-badge)
+[![npm-version](https://flat.badgen.net/npm/v/js-isci?color=red&icon=npm&label=npm)](https://www.npmjs.com/package/js-isci)
+[![github-license](https://flat.badgen.net/github/license/laodemalfatih/js-isci?icon=github)](https://github.com/laodemalfatih/js-isci/blob/master/LICENSE)
 
-[![Build Status](https://api.travis-ci.com/laodemalfatih/js-isci.svg?branch=master)](https://travis-ci.org/laodemalfatih/js-isci)
-[![codecov](https://codecov.io/gh/laodemalfatih/js-isci/branch/master/graph/badge.svg)](https://codecov.io/gh/laodemalfatih/js-isci)
-[![Dependency Status](https://david-dm.org/laodemalfatih/js-isci.svg)](https://david-dm.org/laodemalfatih/js-isci)
+[![travis-build-status](https://flat.badgen.net/travis/laodemalfatih/js-isci?icon=travis&label=build)](https://travis-ci.org/laodemalfatih/js-isci)
+[![codecov-coverage](https://flat.badgen.net/codecov/c/github/laodemalfatih/js-isci?icon=codecov)](https://codecov.io/gh/laodemalfatih/js-isci)
+[![david-dependency-status](https://flat.badgen.net/david/dep/laodemalfatih/js-isci)](https://david-dm.org/laodemalfatih/js-isci)
 
-[![](https://data.jsdelivr.com/v1/package/npm/js-isci/badge)](https://www.jsdelivr.com/package/npm/js-isci)
-[![GitHub license](https://img.shields.io/github/license/laodemalfatih/js-isci?color=informational&style=flat-square)](https://github.com/laodemalfatih/js-isci/blob/master/LICENSE)
+[![jsdelivr-downloads](https://data.jsdelivr.com/v1/package/npm/js-isci/badge)](https://www.jsdelivr.com/package/npm/js-isci)
+[![npm-downloads](https://flat.badgen.net/npm/dt/js-isci?color=red&icon=npm)](https://www.npmjs.com/package/js-isci)
 
-# Generate up to 1,5 MILLION++ unique strings with 10 characters in 1 SECOND !!! ![Thunder Icon](assets/thunder.png)![Thunder Icon](assets/thunder.png)![Thunder Icon](assets/thunder.png)
+# Generate up to 1,5 MILLION++ unique strings (10 character each) in 1 SECOND !!! ![Thunder Icon](assets/thunder.png)![Thunder Icon](assets/thunder.png)![Thunder Icon](assets/thunder.png)
 
+`js-isci` [Draft-1](https://github.com/laodemalfatih/isci/blob/master/drafts/draft-1/README.md) benchmark result:
 ```bash
-1-keyword_isci_1 x 1,499,445 ops/sec ±0.91% (92 runs sampled)
-1-keyword_isci_2 x 1,518,254 ops/sec ±0.65% (94 runs sampled)
-1-keyword_isci_3 x 1,505,860 ops/sec ±0.79% (92 runs sampled)
+1-keyword_isci_1 x 1,524,326 ops/sec ±0.80% (96 runs sampled)
+1-keyword_isci_2 x 1,522,268 ops/sec ±0.78% (94 runs sampled)
+1-keyword_isci_3 x 1,535,622 ops/sec ±0.68% (94 runs sampled)
 ```
 
-Run [`node benchmark.js`](blob/master/benchmark.js) for concrete proof.
+Run [`node draft-1/benchmark.js`](draft-1/benchmark.js) for concrete proof.
 
 # ISCI Library for Javascript
 
 # What is ISCI?
 
-_Identification Information Schema_ (**ISCI**) is a scheme that contains information from identification labels. **ISCI** can be used instead of _UUID_, _Increment_, _Timestamp_, or _Hash_ in the _ID_ component. **ISCI** can be used across platforms. Depends on the availability of libraries from each language. **ISCI** use _JSON_ as a format in defining schemas. In cases in the field, **ISCI** can be stored in _databases_ such as _MongoDB_, _MYSQL_ or _REDIS_ (as _JSON_ string).
+> ISCI (Identification SCheme Information) is a scheme that stores information related to an identification label. ISCI can standardize an identification label on the system or application you have. ISCI is very flexible. ISCI uses the JSON format, this format allows an identification label to generated on any system at any time. ISCI can be stored in Databases, JSON Files or other storage areas that support the JSON storage format. ISCI can be used across platforms depending on the availability of libraries on each platform.
+
+See [Official ISCI Repository](https://github.com/laodemalfatih/isci)
 
 # ISCI Can Be Used For:
 
-- Class name for _HTML_ element in production mode. Ex: `<button class="r_k92-nl"></button>`
-- Opaque Token in _OAuth_
-- Primary key or Relation ID for document in _database table_ or _collection_
-- Salt character in _hash_ function
-- User ID, Document ID, Invoice Number, District ID, etc
-- in lieu of other identification labels that require personal customization
+- Class name for _HTML_ element in production mode. Ex: `<button class="r_k92"></button>`
+- _API_KEY_ in _API_
+- _Opaque Access Token_ in _OAuth_
+- _Primary Key_ in _Database_
+- _Salt_ character in _Hash_ function
+- _User ID_, _Document ID_, _Invoice Number_, _District ID_, etc
+- or in lieu of other identification labels that require personal customization
 
 # Where can i storage ISCI ?
 
@@ -38,7 +43,12 @@ You can save it anywhere in a place that supports to save a JSON or JSON string 
 
 # Simple ISCI example:
 
-**`isciAccountId.json`**
+Using ISCI [Draft-1](https://github.com/laodemalfatih/isci/blob/master/drafts/draft-1/README.md).
+
+> Whats is **Draft** in ISCI?
+> The **Draft** is a standardized version of the ISCI format
+
+**`accountId.isci.json`** (_You can use any name_) :
 
 ```json
 {
@@ -46,14 +56,14 @@ You can save it anywhere in a place that supports to save a JSON or JSON string 
   "pattern": "<districtId>_[uniqueCharacter]-[randomCharacter]",
   "keywords": {
     "uniqueCharacter": {
-      "type": "incrSingleCharset",
+      "type": "incrCharset",
       "charset": "abcdefgh",
-      "currentIndex": 0,
-      "valueIncrease": 1,
+      "index": 0,
+      "increaser": 1,
       "length": 3
     },
     "randomCharacter": {
-      "type": "randomCharset",
+      "type": "randCharset",
       "charset": "abcdefghijklmnopq012345",
       "minLength": 5,
       "maxLength": 12
@@ -62,27 +72,39 @@ You can save it anywhere in a place that supports to save a JSON or JSON string 
 }
 ```
 
-> in `pattern` section, `districtId` is the parameter that will be input when an _ID_ is created. `uniqueCharacter` and `randomCharacter` are keywords that will be generated automatically by the _ISCI_ library based on the options specified in the `keywords` section.
+> in `pattern` section, `districtId` is the parameter that will be input when an _ID_ is created. `uniqueCharacter` and `randomCharacter` are keywords that will be generated automatically by the _ISCI_ library based on the options specified in the `keywords` section. See [Official ISCI Documentation](https://github.com/laodemalfatih/isci/blob/master/README.md) for further information.
 
 You can store this _JSON_ object in _database_ or file to generate an _ID_ anytime, anywhere with any language system depends on the availability of _ISCI_ libraries from each language.
 
 # Instalation
 
-CDN:
+## CDN
 
-**ES2015** version (_Supported in most browsers_):
+### Format:
 
-- _Mutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/mutable.min.js
-- _Immutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/immutable.min.js
+`https://cdn.jsdelivr.net/npm/js-isci@latest/{draft-version}/dist/{js-version}/{library-mode}.min.js`
 
-**ES2016** version (_Supported in most modern browsers_):
+- `draft-version`: (_lowercase_) See [List ISCI Drafts](https://github.com/laodemalfatih/isci#list-isci-drafts)
+- `js-version` :
+  - `js` : **ES2015** version
+  - `es` : **ES2016** version
+  > **ES2015** support in most browser, while **ES2016** support only in most modern browser
+- `library-mode` :
+  - `mutable`
+  - `immutable`
+  - `light-mutable`
+  - `light-immutable`
+  > What is the difference between _mutable_ and _immutable_ version? See [Mutable Version](#mutable-version)
 
-- _Mutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/mutable.es.min.js
-- _Immutable_ version: https://cdn.jsdelivr.net/npm/js-isci@latest/dist/immutable.es.min.js
+  > The _light_ version is _50%_ smaller than the non-light version. In _light_ version not include support to `currentDate` and `currentUnixTimestamp` keywords
 
-> what is the difference between _Mutable_ and _Immutable_ version? See [Mutable Version](#mutable-version)
+### Example:
 
-Modules:
+Draft-1, **ES2016**, Mutable : https://cdn.jsdelivr.net/npm/js-isci@latest/draft-1/dist/es/mutable.min.js
+
+Draft-1, **ES2015**, Light Immutable : https://cdn.jsdelivr.net/npm/js-isci@latest/draft-1/dist/js/light-immutable.min.js
+
+## Modules
 
 ```bash
 # Use npm or yarn
@@ -94,7 +116,7 @@ npm install js-isci
 ## Browser
 
 ```html
-<script src="path/to/mutate.min.js" />
+<script src="path/to/js-isci" />
 
 <script>
   isci.next(isciObject);
@@ -103,19 +125,25 @@ npm install js-isci
 
 ## Node
 
-Choose one:
+### Format:
+
+`require('js-isci/{draft-version}/{library-mode}')`
+
+> node version doesn't need the _light_ version like in browser
+
+### Example:
 
 ```js
-// Mutable version
+// Default import is Mutable version in Draft-1
 const { next } = require('js-isci');
+
+// OR
+
+// Immutable version in Draft-1
+const { next } = require('js-isci/draft-1/immutable);
 ```
 
-```js
-// Immutable version
-const { next } = require('js-isci/immutable');
-```
-
-## Example
+## Example `js-isci` Usage
 
 <details>
 <summary><b>Expand code</b></summary>
@@ -134,21 +162,21 @@ const sampleIsci = {
     },
     keyword_2: {
       type: 'incrNumber',
-      currentIndex: 0,
-      valueIncrease: 1,
+      index: 0,
+      increaser: 1,
       startNumber: 0
     },
     keyword_3: {
-      type: 'incrSingleCharset',
-      currentIndex: 0,
-      valueIncrease: 1,
+      type: 'incrCharset',
+      index: 0,
+      increaser: 1,
       length: 6,
       charset: 'hijkl'
     },
     keyword_4: {
-      type: 'incrMultiCharsets',
-      currentIndex: 0,
-      valueIncrease: 1,
+      type: 'incrCharsets',
+      index: 0,
+      increaser: 1,
       charsets: ['mnopq', 'rstuv', 'wxyz', '01234', '56789']
     }
   }
@@ -177,27 +205,23 @@ Output:
 6-babbc-6-hhhhih_mrw15
 ```
 
-#### You can use the result above as an _ID_ for your data like _`user_id`_, _`document_id`_ and etc.
+> You can use the result above as an _ID_ for your data like _`user_id`_, _`document_id`_ and etc.
 
-## Formats
+## Methods
 
-### Methods
-
-#### Mutable version:
+### Mutable version:
 
 #### `.next(isci, params) string`
 
 Params:
 
-- `isci.name` : `string` - (_Optional_) Used as a unique code that distinguishes each ISCI. Can be used as a primary key when stored in a database
-- `isci.pattern` : `string` - See [Pattern Properties](#pattern-properties)
-- `isci.keywords` : `{ keyword }` - See [Keyword Properties](#keyword-properties) for `keyword` information
-- `params` : `object` - an Object whose value will be passed as parameter in `isci.pattern`
+- `isci` : `object` - Your ISCI. See [ISCI Formats](https://github.com/laodemalfatih/isci/tree/master/drafts/draft-1#isci-formats) for more information
 
-Get next ID from an ISCI Object.
+- `params` : `object` - The ISCI parameter
 
-<details>
-<summary><b>Immutable version:</b></summary>
+Get next ID from an ISCI.
+
+### Immutable version:
 
 #### `.next(isci, params) object`
 
@@ -206,236 +230,26 @@ Return:
 - `object.result` : `string` - The next ID
 - `object.updatedIsci` : `object` - Updated `isci` object.
 
-Same as `.next` method in _mutable_ version, but this function does not change the original `isci` object and returning an `object` contain next ID and updated ISCI.
-
-</details>
-
-### Pattern Properties
-
-#### `string`
-
-Use `[ ]` brackets to define keyword and `< >` for parameter.
-
-Example:
-
-```js
-// With separator (You can use any character as a separator)
-const pattern1 = '<index>_[departementSection]-[randomCharacter]';
-// Without separator
-const pattern2 = '[id][currentDate]';
-```
-
-### Keyword Properties
-
-#### `{ [keywordName] : keywordProperties }`
-
-- `keywordName` : `string` - The name you enter in the `isci.pattern`
-- `keywordProperties.types` : `string` - See [Supported Keyword Types](#Supported_Keyword_Types)
-- `keywordProperties.<etc>` - Explained bellow. Different, depending on keyword type.
-
-### Supported Keyword Types
-
-<details>
-<summary>randCharset</summary>
-
-Generate random strings from available charset.
-
-#### Keyword Properties:
-
-| Properties Name | Type     |
-| --------------- | -------- |
-| length          | `number` |
-| minLength       | `number` |
-| maxLength       | `number` |
-| charset         | `string` |
-
-> You have to choose one, use `length` or use `minLength` and `maxLength`. The second choice causes the system to generate random length between `minLength` (_inclusive_) and `maxLength` (_inclusive_)
-
-#### Example:
-
-Options:
-
-```js
-{
-  length: 6,
-  charset: '1234abcd', // You can replace this with any character
-}
-```
-
-Output: (Run 4x)
-
-```bash
-bdaa13
-114a3b
-b441c4
-4dca4c
-```
-
-</details>
-
-<details>
-<summary>incrNumber</summary>
-
-Increment number with specific value.
-
-#### Keyword Properties:
-
-| Properties Name | Type     |
-| --------------- | -------- |
-| currentIndex    | `number` |
-| valueIncrease   | `number` |
-| startNumber     | `number` |
-
-#### Example:
-
-Options:
-
-```js
-{
-  currentIndex: 0,
-  valueIncrease: 3,
-  startNumber: 1
-}
-```
-
-Output: (Run 5x)
-
-```bash
-4
-7
-10
-13
-16
-```
-
-</details>
-
-<details>
-<summary>incrSingleCharset</summary>
-
-Increment character based on its index position in charset.
-
-#### Keyword Properties:
-
-| Properties Name | Type     |
-| --------------- | -------- |
-| currentIndex    | `number` |
-| valueIncrease   | `number` |
-| length          | `number` |
-| charset         | `string` |
-
-#### Example:
-
-Options:
-
-```js
-{
-  currentIndex: 0,
-  valueIncrease: 1,
-  length: 5,
-  charset: 'abcdefg'
-}
-```
-
-Output: (Run 6x)
-
-```bash
-aaaaa
-aaaab
-aaaac
-aaaad
-aaaae
-aaaaf
-```
-
-</details>
-
-<details>
-<summary>incrMultiCharsets</summary>
-
-Same as [`incrSingleCharset`](#incrSingleCharset), the difference is it uses many charsets at once and the length of result follow the length of the `charsets`.
-
-#### Keyword Properties:
-
-| Properties Name | Type       |
-| --------------- | ---------- |
-| currentIndex    | `number`   |
-| valueIncrease   | `number`   |
-| charsets        | `[string]` |
-
-#### Example:
-
-Options:
-
-```js
-{
-  currentIndex: 0,
-  valueIncrease: 1,
-  charsets: ['abc', '123', 'def', 'ghi']
-}
-```
-
-Output: (Run 4x)
-
-```bash
-a1dg
-a1dh
-a1di
-a1eg
-```
-
-</details>
-
-<details>
-<summary>currentDate</summary>
-
-Only date. nothing is different. it looks like no description is needed.
-
-#### Keyword Properties:
-
-| Properties Name | Type     |
-| --------------- | -------- |
-| format          | `string` |
-
-> `format` string can be anything, but the following letters will be replaced (and leading zeroes added if necessary) ... See [date-format](https://github.com/nomiddlename/date-format#formatting-dates-as-strings) for more information.
-
-#### Example:
-
-Options:
-
-```js
-{
-  format: 'yyyy-MM-dd/hh-mm-ss.SSS';
-}
-```
-
-Output: (Run 1x)
-
-```bash
-2020-01-09/15-00-00.000
-```
-
-</details>
-
-<details>
-<summary>currentUnixTimestamp</summary>
-
-Everything has been explained in [unixtimestamp.com](https://www.unixtimestamp.com/)
-
-#### Keyword Properties:
-
-_No property needed_
-
-#### Example:
-
-Output: (Run 3x)
-
-```bash
-1578560571114
-1578560571116
-1578560571117
-```
-
-</details>
-
-### See [`examples.js`](blob/master/examples.js) file for more example usage.
+Same as `.next` method in [mutable](#nextisci-params-string) version, but this function does not change the original `isci` object and returning an `object` contain next _ID_ and updated ISCI. 
+
+When is this function is used? 
+
+The answer is if you don't want to change the original ISCI object
+
+> In Javascript, all object instances are connected. When you change an instance, other intances will also change.
+>
+> Example:
+>
+> ```js
+> const original = { key1: 'hello' };
+> const instance1 = original;
+> const instance2 = original;
+>
+> // Change value in instance2
+> instance2.key1 = 'world';
+>
+> // Now value of original, instance1, instance2 is:
+> // { key1: 'world' }
+> ```
+
+## See [`examples.js`](draft-1/examples.js) file for more example or visit [Official ISCI Documentation](https://github.com/laodemalfatih/isci)

@@ -5,9 +5,9 @@ const simpleIsci = {
   pattern: '[uniqueString]',
   keywords: {
     uniqueString: {
-      type: 'incrSingleCharset',
-      currentIndex: 0,
-      valueIncrease: 1,
+      type: 'incrCharset',
+      index: 0,
+      increaser: 1,
       length: 10,
       charset: 'abcdefghijklmnopqrstuvwxyz0123456789'
     }
