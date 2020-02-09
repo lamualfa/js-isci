@@ -1,7 +1,7 @@
 {
   "name": "js-isci",
   "version": "1.0.5",
-  "main": "mutable.js",
+  "main": "draft-1/mutable.js",
   "license": "MIT",
   "dependencies": {
     "date-format": "^3.0.0",
