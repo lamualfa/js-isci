@@ -11,6 +11,7 @@
 # Generate up to 1,5 MILLION++ unique strings (10 character each) in 1 SECOND !!! ![Thunder Icon](assets/thunder.png)![Thunder Icon](assets/thunder.png)![Thunder Icon](assets/thunder.png)
 
 `js-isci` [Draft-1](https://github.com/laodemalfatih/isci/blob/master/drafts/draft-1/README.md) benchmark result:
+
 ```bash
 1-keyword_isci_1 x 1,524,326 ops/sec ±0.80% (96 runs sampled)
 1-keyword_isci_2 x 1,522,268 ops/sec ±0.78% (94 runs sampled)
@@ -88,13 +89,14 @@ You can store this _JSON_ object in _database_ or file to generate an _ID_ anyti
 - `js-version` :
   - `js` : **ES2015** version
   - `es` : **ES2016** version
-  > **ES2015** support in most browser, while **ES2016** support only in most modern browser
+    > **ES2015** support in most browser, while **ES2016** support only in most modern browser
 - `library-mode` :
+
   - `mutable`
   - `immutable`
   - `light-mutable`
   - `light-immutable`
-  > What is the difference between _mutable_ and _immutable_ version? See [Mutable Version](#mutable-version)
+    > What is the difference between _mutable_ and _immutable_ version? See [Mutable Version](#mutable-version)
 
   > The _light_ version is _50%_ smaller than the non-light version. In _light_ version not include support to `currentDate` and `currentUnixTimestamp` keywords
 
@@ -129,19 +131,23 @@ npm install js-isci
 
 `require('js-isci/{draft-version}/{library-mode}')`
 
-> node version doesn't need the _light_ version like in browser
+> Property `draft-version` and `library-mode` is the same as the property in the [CDN](#cdn)
+
+> In the node version there is no `js-version` property as in the [CDN](#cdn)
 
 ### Example:
 
 ```js
-// Default import is Mutable version in Draft-1
+// Default import is: Draft-1, Mutable
 const { next } = require('js-isci');
 
-// OR
+// Draft-1, Immutable
+const { next } = require('js-isci/draft-1/immutable');
 
-// Immutable version in Draft-1
-const { next } = require('js-isci/draft-1/immutable);
+// Draft-1, Light Mutable
+const { next } = require('js-isci/draft-1/light-mutable');
 ```
+> Just select one of the examples above
 
 ## Example `js-isci` Usage
 
@@ -230,9 +236,9 @@ Return:
 - `object.result` : `string` - The next ID
 - `object.updatedIsci` : `object` - Updated `isci` object.
 
-Same as `.next` method in [mutable](#nextisci-params-string) version, but this function does not change the original `isci` object and returning an `object` contain next _ID_ and updated ISCI. 
+Same as `.next` method in [mutable](#nextisci-params-string) version, but this function does not change the original `isci` object and returning an `object` contain next _ID_ and updated ISCI.
 
-When is this function is used? 
+When is this function is used?
 
 The answer is if you don't want to change the original ISCI object
 
