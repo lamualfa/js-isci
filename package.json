@@ -1,6 +1,6 @@
 {
   "name": "js-isci",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "draft-1/mutable.js",
   "license": "MIT",
   "dependencies": {
